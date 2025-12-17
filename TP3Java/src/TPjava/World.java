@@ -79,8 +79,6 @@ public class World {
     }
 
     private static double[] parseLonLatFromLine(String s) {
-        // récupère les 2 derniers doubles de la ligne (souvent "lon, lat")
-        // ex: ..."143.1247, -7.6720",,
         String cleaned = s.replace("\"", " ");
         String[] parts = cleaned.split(",");
         Double last = null, secondLast = null;
@@ -96,3 +94,4 @@ public class World {
         return new double[]{lon, lat};
     }
 }
+
