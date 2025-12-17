@@ -48,14 +48,12 @@ public class JsonFlightFiller {
                     f.setFlightIata(getString(flight, "iata"));
                     f.setNumber(parseIntSafe(getString(flight, "number")));
 
-                    // times : aviationstack renvoie souvent ISO avec timezone
                     f.setDepartureTime(parseDate(getString(dep, "estimated"), getString(dep, "scheduled")));
                     f.setArrivalTime(parseDate(getString(arr, "estimated"), getString(arr, "scheduled")));
 
                     list.add(f);
 
                 } catch (Exception ignoredOne) {
-                    // on skip juste ce vol si un champ est mal formé
                 }
             }
         } catch (Exception e) {
@@ -80,3 +78,4 @@ public class JsonFlightFiller {
         try { return OffsetDateTime.parse(s).toLocalDateTime(); } catch (Exception e) { return null; }
     }
 }
+
